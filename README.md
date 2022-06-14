@@ -5,6 +5,18 @@ Kodi V20 Fork.
 
 Some know fixes are applied to this Fork.
 
+Fixes:
+
+-Game launching
+
+-Solo Mode (Partial fix)
+
+-Playstation 3 now accepts game shortcuts.
+
+-Wii U now accepts game shortcuts.
+
+You can google on how to create shorcuts for those platforms. PCS3 is just a click. Cemu a few more clicks. Then just add your platform and select shortcuts folder.
+
 Works on Kodi V18, V19, V20.
 
 
@@ -52,9 +64,5 @@ RCB scrapes data from these sites (don't forget to visit, register and contribut
 RCB also imports game information from some file formats that you need to download first. See [the wiki](https://github.com/maloep/romcollectionbrowser/wiki/UseOfflineGameDescriptions) for more information.
 
 
-## Screenshots
-
-Check out the [Screenshot gallery](https://github.com/maloep/romcollectionbrowser/wiki/Gallery)
-
-## Donate to Author
+## Donate to Author https://github.com/maloep
 <a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6WHY43UNQSHFJ'><img src='https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif' /></a>
