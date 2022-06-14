@@ -19,6 +19,7 @@ You can google on how to create shorcuts for those platforms. RPCS3 is just a cl
 
 Works on Kodi V18, V19, V20.
 
+Only Tested on Windows.
 
 <a href='http://www.youtube.com/watch?feature=player_embedded&v=NRTg3HmIuqU' target='_blank'><img src='http://img.youtube.com/vi/NRTg3HmIuqU/0.jpg' width='425' height=344 /></a>
 
