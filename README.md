@@ -15,7 +15,7 @@ Fixes:
 
 -Wii U now accepts game shortcuts.
 
-You can google on how to create shorcuts for those platforms. PCS3 is just a click. Cemu a few more clicks. Then just add your platform and select shortcuts folder.
+You can google on how to create shorcuts for those platforms. RPCS3 is just a click. Cemu a few more clicks. Then just add your platform and select shortcuts folder.
 
 Works on Kodi V18, V19, V20.
 
