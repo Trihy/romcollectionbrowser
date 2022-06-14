@@ -558,7 +558,7 @@ msgstr "Usar RetroPlayer para Lanzar Juegos?"
 
 msgctxt "#32199"
 msgid "Suspend Audio"
-msgstr "Suspender Audio<"
+msgstr "Suspender Audio"
 
 msgctxt "#32200"
 msgid "Minimize Kodi"
