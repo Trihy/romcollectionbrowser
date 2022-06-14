@@ -604,6 +604,10 @@ msgctxt "#32308"
 msgid "Show import options dialog"
 msgstr "Afficher la fenêtre d'options des importations"
 
+msgctxt "#32211"
+msgid "Disable Screensaver"
+msgstr "Désactiver l'économiseur d'écran"
+
 msgctxt "#32309"
 msgid "Scraping mode"
 msgstr "Mode d'extraction"
