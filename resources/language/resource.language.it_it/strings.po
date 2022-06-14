@@ -604,6 +604,10 @@ msgctxt "#32308"
 msgid "Show import options dialog"
 msgstr "Mostra dialogo opzioni importazione"
 
+msgctxt "#32211"
+msgid "Disable Screensaver"
+msgstr "Disabilita il salvaschermo"
+
 msgctxt "#32309"
 msgid "Scraping mode"
 msgstr "Modalità scraping"
