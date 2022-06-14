@@ -604,6 +604,10 @@ msgctxt "#32308"
 msgid "Show import options dialog"
 msgstr "Toon importeer opties venster"
 
+msgctxt "#32211"
+msgid "Disable Screensaver"
+msgstr "Schermbeveiliging uitschakelen"
+
 msgctxt "#32309"
 msgid "Scraping mode"
 msgstr "Scraping modus"
