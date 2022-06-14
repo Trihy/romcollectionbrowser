@@ -1,4 +1,4 @@
-# Rom Collection Browser - XBMC Game Frontend #
+# Rom Collection Browser - KODI Game Frontend #
 
 
 Kodi V20 Fork.
