@@ -17,6 +17,8 @@ Fixes:
 
 You can google on how to create shorcuts for those platforms. RPCS3 is just a click. Cemu a few more clicks. Then just add your platform and select emulator and shortcuts folder.
 
+Language files updated.
+
 Works on Kodi V18, V19, V20.
 
 Only Tested on Windows.
