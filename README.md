@@ -1,18 +1,18 @@
 # Rom Collection Browser - XBMC Game Frontend #
 
+
+Kodi V20 Fork.
+
+Some know fixes are applied to this Fork.
+
+Works on Kodi V18, V19, V20.
+
+
 <a href='http://www.youtube.com/watch?feature=player_embedded&v=NRTg3HmIuqU' target='_blank'><img src='http://img.youtube.com/vi/NRTg3HmIuqU/0.jpg' width='425' height=344 /></a>
 
-**Current stable version (Kodi Krypton & Leia):** [2.2.4](https://forum.kodi.tv/showthread.php?tid=70115&pid=2938738#pid2938738)
-
-**Matrix compatible:** [Matrix branch](https://forum.kodi.tv/showthread.php?tid=70115&pid=2937200#pid2937200)
-
-**Current development version (Matrix only):** [Current Git version](https://github.com/maloep/romcollectionbrowser/wiki/Installation#current-git-version)
-
-**Documentation:** [https://github.com/maloep/romcollectionbrowser/wiki](https://github.com/maloep/romcollectionbrowser/wiki)
 
 **Kodi Forum thread:** [http://forum.kodi.tv/showthread.php?tid=70115](http://forum.kodi.tv/showthread.php?tid=70115)
 
-**XBMCNerds thread (german forum):** [http://www.kodinerds.net/index.php/Thread/11578-Rom-Collection-Browser-XBMC-Spiele-Frontend/](http://www.kodinerds.net/index.php/Thread/11578-Rom-Collection-Browser-XBMC-Spiele-Frontend/)
 
 
 ## Features
@@ -56,5 +56,5 @@ RCB also imports game information from some file formats that you need to downlo
 
 Check out the [Screenshot gallery](https://github.com/maloep/romcollectionbrowser/wiki/Gallery)
 
-## Donate
+## Donate to Author
 <a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6WHY43UNQSHFJ'><img src='https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif' /></a>
