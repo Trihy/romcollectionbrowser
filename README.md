@@ -21,6 +21,8 @@ Works on Kodi V18, V19, V20.
 
 Only Tested on Windows.
 
+******Remember to install first RCB Service https://github.com/maloep/service.rom.collection.browser/archive/Matrix.zip
+
 <a href='http://www.youtube.com/watch?feature=player_embedded&v=NRTg3HmIuqU' target='_blank'><img src='http://img.youtube.com/vi/NRTg3HmIuqU/0.jpg' width='425' height=344 /></a>
 
 
