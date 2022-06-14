@@ -15,7 +15,7 @@ Fixes:
 
 -Wii U now accepts game shortcuts.
 
-You can google on how to create shorcuts for those platforms. RPCS3 is just a click. Cemu a few more clicks. Then just add your platform and select emulator and shortcuts folder.
+You can google on how to create shorcuts for those platforms. RPCS3 is just a click. Cemu a few more clicks. Then just add your platform and select shortcuts folder.
 
 -Language files updated.
 
