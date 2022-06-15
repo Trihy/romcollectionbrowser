@@ -170,7 +170,7 @@ class ConfigXmlWizard(RcbXmlReaderWriter):
                 preconfiguredEmulator = None
 
                 # Emulator
-                if romCollection.name in ['Linux', 'Macintosh', 'Windows']:
+                if romCollection.name in ['Linux', 'Macintosh', 'Windows', 'PlayStation 3', 'Wii U']:
                     # Check for standalone games
                     romCollection.emulatorCmd = '"%ROM%"'
                     log.info("emuCmd set to '%ROM%' for standalone games.")
@@ -207,7 +207,7 @@ class ConfigXmlWizard(RcbXmlReaderWriter):
                         romCollection.emulatorCmd = consolePath
 
                 # Set emulator parameters
-                if romCollection.name in ['Linux', 'Macintosh', 'Windows']:
+                if romCollection.name in ['Linux', 'Macintosh', 'Windows', 'PlayStation 3', 'Wii U']:
                     romCollection.emulatorParams = ''
                     log.info("emuParams set to "" for standalone games.")
                 else:
