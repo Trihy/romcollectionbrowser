@@ -88,7 +88,7 @@ class Cmd_Launcher(AbstractLauncher):
                 if self.escapeCmd:
                     emuCommandLine = re.escape(emuCommandLine)
 
-                if romCollection.name in ['Linux', 'Macintosh', 'Windows']:
+                if romCollection.name in ['Linux', 'Macintosh', 'Windows', 'PlayStation 3', 'Wii U']:
                     cmd = super().replacePlaceholdersInParams(emuCommandLine, rom, gameRow)
                 else:
                     cmd = '\"' + emuCommandLine + '\" ' + emuParams.replace('%I%', str(romindex))
