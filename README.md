@@ -9,7 +9,7 @@ Fixes:
 
 -Game launching
 
--Solo Mode (Partial fix)
+-Solo Mode (Select Solo Mode also en every collection you want, Edit Rom Collection -> Select the rom collection you want-> Launch Games -> Use Emulator in Solo Mode )
 
 -Playstation 3 now accepts game shortcuts.
 
