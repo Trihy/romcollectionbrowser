@@ -142,7 +142,7 @@ msgstr "Error lanzando juego!"
 
 msgctxt "#32035"
 msgid "Error while launching emulator"
-msgstr "Error mientras lanzando emulador"
+msgstr "Error mientras se lanza emulador"
 
 msgctxt "#32036"
 msgid "Error deleting files after launching emulator"
@@ -262,7 +262,7 @@ msgstr "TODO"
 
 msgctxt "#32121"
 msgid "Loading games..."
-msgstr "cargando juegos..."
+msgstr "Cargando juegos..."
 
 msgctxt "#32122"
 msgid "Importing Rom Collection"
@@ -718,7 +718,7 @@ msgstr "Mostrar barra de scroll en lista de juegos"
 
 msgctxt "#32332"
 msgid "Show navigation hint at startup"
-msgstr "Motrar tips de navegación al comienzo"
+msgstr "Mostrar tips de navegación al comienzo"
 
 msgctxt "#32400"
 msgid "Year"
