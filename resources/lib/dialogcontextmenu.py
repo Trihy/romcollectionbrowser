@@ -161,7 +161,7 @@ class ContextMenuDialog(object):
             log.info("This RetroPlayer branch does not support selecting gameclients.")
             return
 
-        if self.selectedGame is None or self.gameRow is None:
+        if self.selectedGame is None:
             # 32014 = Can't load selected Game
             # 32015 = Edit Game Command Error
             message = "%s[CR]%s" % (util.localize(32015), util.localize(32014))
@@ -187,3 +187,4 @@ class ContextMenuDialog(object):
             Game(self.gui.gdb).update(('alternateGameCmd',), (gameclient,), self.selectedGame.getProperty('gameId'),
                                       True)
             self.gui.gdb.commit()
+
