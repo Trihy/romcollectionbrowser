@@ -1,7 +1,7 @@
 # Rom Collection Browser - KODI Game Frontend #
 
 
-Kodi V20 Fork.
+Kodi V20 & V21 Fork.
 
 Some know fixes are applied to this Fork.
 
@@ -19,7 +19,7 @@ You can google on how to create shorcuts for those platforms. RPCS3 is just a cl
 
 -Language files updated.
 
-Works on Kodi V18, V19, V20.
+Works on Kodi V18, V19, V20, V21
 
 Only Tested on Windows.
 
