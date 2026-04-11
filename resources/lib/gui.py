@@ -77,6 +77,7 @@ CONTROL_BUTTON_CLEAN_LIBRARY = 4005
 CONTROL_BUTTON_SCAN_ARTWORK = 4006
 CONTROL_BUTTON_EDIT_ROM_COLLECTION = 4007
 CONTROL_BUTTON_OPEN_ADDON_SETTINGS = 4008
+CONTROL_BUTTON_RANDOM_GAME = 4009
 
 
 class MyPlayer(xbmc.Player):
@@ -521,6 +522,9 @@ class UIGameDB(xbmcgui.WindowXML):
 
         elif controlId == CONTROL_BUTTON_OPEN_ADDON_SETTINGS:
             self.Settings.openSettings()
+            
+        elif controlId == CONTROL_BUTTON_RANDOM_GAME:
+            self.launch_random_game()
 
 
 
@@ -1240,6 +1244,68 @@ class UIGameDB(xbmcgui.WindowXML):
         self.setFocus(self.getControl(CONTROL_GAMES_GROUP_START))
 
         log.info("End showGameInfoDialog")
+        
+    def launch_random_game(self):
+        log.info("launch_random_game")
+
+        if self.launch_in_progress:
+            log.warn("Launch already in progress, ignoring random game.")
+            return
+
+        self.launch_in_progress = True
+        try:            
+            try:
+                self.gdb.cursor.execute("SELECT id FROM Game ORDER BY RANDOM() LIMIT 1")
+                row = self.gdb.cursor.fetchone()
+                if row is None:
+                    xbmcgui.Dialog().ok(util.SCRIPTNAME, util.localize(32412))  # "No Games found"
+                    return
+                game_id = row[0]
+            except Exception as e:
+                log.error(f"Error getting random game: {e}")
+                xbmcgui.Dialog().ok(util.SCRIPTNAME, "Error obtaining random game")
+                return
+
+            # Game Info
+            game_row = GameView(self.gdb).getGameById(game_id)
+            if game_row is None:
+                log.error(f"Game with id {game_id} not found")
+                xbmcgui.Dialog().ok(util.SCRIPTNAME, "Game Not Found")
+                return
+
+            # ListItem
+            item = xbmcgui.ListItem(game_row[GameView.COL_NAME], str(game_id))
+            item.setProperty('romCollectionId', str(game_row[GameView.COL_romCollectionId]))
+            item.setProperty('gameId', str(game_id))
+            item.setProperty('plot', game_row[GameView.COL_description] or '')
+            item.setProperty('playcount', str(game_row[GameView.COL_launchCount]))
+            item.setProperty('originalTitle', game_row[GameView.COL_originalTitle] or '')
+            item.setProperty('alternateTitle', game_row[GameView.COL_alternateTitle] or '')
+            item.setProperty('developer', game_row[GameView.COL_developer] or '')
+            item.setProperty('publisher', game_row[GameView.COL_publisher] or '')
+            item.setProperty('year', game_row[GameView.COL_year] or '')
+            item.setProperty('genre', game_row[GameView.COL_genre] or '')
+            item.setProperty('gameCmd', game_row[GameView.COL_gameCmd] or '')
+            item.setProperty('alternateGameCmd', game_row[GameView.COL_alternateGameCmd] or '')
+            item.setProperty('rating', str(game_row[GameView.COL_rating]) if game_row[GameView.COL_rating] else '')
+            max_players = game_row[GameView.COL_maxPlayers]
+            item.setProperty('maxplayers', str(max_players) if max_players else '')
+            if game_row[GameView.COL_isFavorite] == 1:
+                item.setProperty('isfavorite', '1')
+            else:
+                item.setProperty('isfavorite', '')
+
+            # Stop Video
+            if self.player.isPlayingVideo():
+                self.player.stop()
+
+            # Launch Game
+            from base_launcher import AbstractLauncher
+            AbstractLauncher(self.gdb, self.config, self).launch_game(game_id, item)
+        finally:
+            self.launch_in_progress = False
+
+        log.info("End launch_random_game")
 
     def showContextMenu(self):
 
