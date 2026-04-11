@@ -189,7 +189,7 @@ class UIGameDB(xbmcgui.WindowXML):
         self.player = MyPlayer()
         self.player.gui = self
         self.launch_in_progress = False
-
+      
         self.initialized = True
 
     # FIXME TODO Move to config.py
@@ -987,7 +987,7 @@ class UIGameDB(xbmcgui.WindowXML):
 
         return self.getListItem(pos)
 
-def launchEmu(self):
+    def launchEmu(self):
         log.info("Begin launchEmu")
 
         if self.launch_in_progress:
@@ -1022,7 +1022,7 @@ def launchEmu(self):
             self.launch_in_progress = False
 
         log.info("End launchEmu")
-  
+
     def updateDB(self):
         log.info("Begin updateDB")
         self.importGames(None, False)
