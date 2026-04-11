@@ -188,6 +188,7 @@ class UIGameDB(xbmcgui.WindowXML):
 
         self.player = MyPlayer()
         self.player.gui = self
+        self.launch_in_progress = False
 
         self.initialized = True
 
@@ -986,9 +987,12 @@ class UIGameDB(xbmcgui.WindowXML):
 
         return self.getListItem(pos)
 
-    def launchEmu(self):
-
+def launchEmu(self):
         log.info("Begin launchEmu")
+
+        if self.launch_in_progress:
+            log.warn("Launch already in progress, ignoring.")
+            return
 
         if self.getListSize() == 0:
             log.warn("ListSize == 0 in launchEmu")
@@ -999,7 +1003,7 @@ class UIGameDB(xbmcgui.WindowXML):
             pos = 0
         selectedGame = self.getListItem(pos)
 
-        if selectedGame == None:
+        if selectedGame is None:
             log.warn("selectedGame == None in launchEmu")
             return
 
@@ -1008,13 +1012,17 @@ class UIGameDB(xbmcgui.WindowXML):
 
         #stop video (if playing)
         if self.player.isPlayingVideo():
-            #self.player.stoppedByRCB = True
             self.player.stop()
 
-        from base_launcher import AbstractLauncher
-        AbstractLauncher(self.gdb, self.config, self).launch_game(gameId, selectedGame)
-        log.info("End launchEmu")
+        self.launch_in_progress = True
+        try:
+            from base_launcher import AbstractLauncher
+            AbstractLauncher(self.gdb, self.config, self).launch_game(gameId, selectedGame)
+        finally:
+            self.launch_in_progress = False
 
+        log.info("End launchEmu")
+  
     def updateDB(self):
         log.info("Begin updateDB")
         self.importGames(None, False)
