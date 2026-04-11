@@ -1,4 +1,4 @@
-
+import subprocess
 import os, sys, re
 import json
 
@@ -181,11 +181,25 @@ class Cmd_Launcher(AbstractLauncher):
 
             self.screenModeToggled = True
 
+    def _run_command(self, cmd):        
+        if cmd.strip() == '' or cmd.strip() == 'call':
+            return
+        log.info("Executing command: " + cmd)
+        try:
+            if sys.platform == 'win32':                
+                startupinfo = subprocess.STARTUPINFO()
+                startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                startupinfo.wShowWindow = subprocess.SW_HIDE
+                creationflags = subprocess.CREATE_NO_WINDOW
+                process = subprocess.Popen(cmd, shell=True, startupinfo=startupinfo, creationflags=creationflags)
+            else:
+                process = subprocess.Popen(cmd, shell=True)
+            process.wait()
+        except Exception as e:
+            log.error(f"Error executing command: {e}")
+
     def __executePreCommand(self, precmd):
-        # pre launch command
-        if precmd.strip() != '' and precmd.strip() != 'call':
-            log.info("Got to PRE: " + precmd.strip())
-            os.system(precmd)
+        self._run_command(precmd)
 
     def __preDelay(self):
         preDelay = __addon__.getSetting(util.SETTING_RCB_PRELAUNCHDELAY)
@@ -253,27 +267,18 @@ class Cmd_Launcher(AbstractLauncher):
             if(screensaver_active):
                 xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "Input.Select", "id": 1}')
 
-    def __executeCommand(self, romCollection, cmd):
-        log.info('__executeCommand')
+    def __executeCommand(self, romCollection, cmd):        
+        emuPath = getattr(romCollection, 'tempEmulatorCmd', None)
+        if not emuPath:
+            emuPath = romCollection.emulatorCmd
         # change working directory
         path = os.path.dirname(romCollection.emulatorCmd)
         if os.path.isdir(path):
             try:
                 os.chdir(path)
             except OSError:
-                log.warn("Unable to chdir to {0}".format(path))
-
-        if romCollection.usePopen:
-            log.info('execute command with popen')
-            import subprocess
-            process = subprocess.Popen(cmd, shell=True)
-            process.wait()
-        else:
-            log.info('execute command with os.system')
-            os.system(cmd)
+                log.warn("Unable to chdir to {0}".format(path))        
+        self._run_command(cmd)
 
     def __executePostCommand(self, postcmd):
-        # post launch command
-        if postcmd.strip() != '' and postcmd.strip() != 'call':
-            log.info("Got to POST: " + postcmd.strip())
-            os.system(postcmd)
+        self._run_command(postcmd)
