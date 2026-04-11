@@ -916,7 +916,57 @@ class UIGameDB(xbmcgui.WindowXML):
                             romCollection.imagePlacingMain.fileTypesForMainViewGameInfoLeft, game),
                         IMAGE_CONTROL_GAMEINFO_RIGHT: helper.get_file_for_control_from_db(
                             romCollection.imagePlacingMain.fileTypesForMainViewGameInfoRight, game)
-                         })
+                         })            
+
+            console_clearlogo = ''
+            console_logo_brand = ''
+
+            for mediaPath in romCollection.mediaPaths:
+                if mediaPath.fileType.name == 'clearlogo':
+                    base_path = mediaPath.path
+
+                    if '%GAME%' in base_path:
+                        base_path = base_path.split('%GAME%')[0]
+                    if base_path.endswith('.*'):
+                        base_path = base_path[:-2]
+                    if not base_path.endswith(os.sep):
+                        base_path += os.sep
+
+                    # -------- LOGO CONSOLE --------
+                    normal_names = [
+                        'clearlogo.png',
+                        'clearlogo.jpg',
+                        'clearlogo_console.png',
+                        'clearlogo_console.jpg',
+                        f"{romCollection.name}_console.png",
+                        'logo.png'
+                    ]
+                    for name in normal_names:
+                        test_path = os.path.join(base_path, name)
+                        if xbmcvfs.exists(test_path):
+                            console_clearlogo = test_path
+                            break
+
+                    # -------- LOGO BRAND --------
+                    brand_names = [
+                        'clearlogo2.png',
+                        'clearlogo2.jpg',
+                        'clearlogo_brand.png',
+                        'clearlogo_brand.jpg',                        
+                        f"{romCollection.name}_brand.png"
+                    ]
+                    for name in brand_names:
+                        test_path = os.path.join(base_path, name)
+                        if xbmcvfs.exists(test_path):
+                            console_logo_brand = test_path
+                            break
+                    
+                    break
+
+            # -------- SET PROPERTIES --------
+            item.setProperty('console_clearlogo', console_clearlogo or '')
+            item.setProperty('console_logo_brand', console_logo_brand or '')
+            
 
             if romCollection.autoplayVideoMain:
                 self.loadVideoFiles(item, romCollection, game)
