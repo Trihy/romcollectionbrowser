@@ -2236,7 +2236,7 @@
 					<textoffsetx>7</textoffsetx>
 					<textoffsety></textoffsety>
 					<pulseonselect></pulseonselect>
-					<onup>4008</onup>
+					<onup>4009</onup>
 					<ondown>1000</ondown>
 					<onleft>50</onleft>
 					<onright>50</onright>
@@ -2612,6 +2612,30 @@
 					<textoffsety></textoffsety>
 					<pulseonselect></pulseonselect>
 					<onup>4007</onup>
+					<ondown>4009</ondown>
+					<onleft>50</onleft>
+					<onright>50</onright>
+				</control>
+				<control type="button" id="4009">
+					<description>Random Game</description>
+					<posx>0</posx>
+					<posy>280</posy>
+					<width>300</width>
+					<height>40</height>
+					<visible>true</visible>
+					<texturefocus colordiffuse="$INFO[Skin.String(rcb_button_focus)]">rcb-button-focus.png</texturefocus>
+					<texturenofocus></texturenofocus>
+					<label>Launch Random Game</label>
+					<font>font13</font>
+					<textcolor>$INFO[Skin.String(rcb_text_button_nofocus)]</textcolor>
+					<focusedcolor>$INFO[Skin.String(rcb_text_button_focus)]</focusedcolor>
+					<disabledcolor>$INFO[Skin.String(rcb_text_button_disabled)]</disabledcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textoffsetx>7</textoffsetx>
+					<textoffsety></textoffsety>
+					<pulseonselect></pulseonselect>
+					<onup>4008</onup>
 					<ondown>2</ondown>
 					<onleft>50</onleft>
 					<onright>50</onright>
