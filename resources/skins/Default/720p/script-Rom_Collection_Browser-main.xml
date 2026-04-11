@@ -518,18 +518,32 @@
 					<posx>640r</posx>
 					<posy>0</posy>
 					<visible>Control.IsVisible(52)</visible>
-					<control type="label">
-						<!-- Note: comments below are needed for skin convert scripts -->
+					<!-- Console Brand Logo) -->
+					<control type="image">
+						<description>Console Brand Logo</description>
 						<posx>5</posx>
-						<posy>15</posy><!--view_52_labelconsole_posy-->
-						<width>620</width>
+						<posy>10</posy>
+						<width>230</width>
+						<height>58</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Property(console_logo_brand)]</texture>
+						<fadetime>100</fadetime>
+						<visible>!String.IsEmpty(ListItem.Property(console_logo_brand))</visible>
+					</control>
+
+					<!-- Console Title Fallback -->
+					<control type="label">
+						<posx>5</posx>
+						<posy>15</posy>
+						<width>490</width>
 						<height>30</height>
 						<font>font30_title</font>
 						<aligny>center</aligny>
-						<textcolor>$INFO[Skin.String(rcb_text_heading)]</textcolor>
 						<align>center</align>
+						<textcolor>$INFO[Skin.String(rcb_text_heading)]</textcolor>
 						<label>[B]$INFO[ListItem.Property(console)][/B]</label>
-						<visible>Control.IsVisible(52)</visible>
+						<scroll>true</scroll>
+						<visible>String.IsEmpty(ListItem.Property(console_logo_brand))</visible>
 					</control>					
 					<!-- extraImage1 -->
 					<control type="image">
@@ -670,20 +684,18 @@
 					<posx>25</posx>
 					<posy>15</posy>
 					<visible>Control.IsVisible(52) + Integer.IsGreater(Container.NumItems,0)</visible>
-					<control type="label">
-						<!-- Note: comments below are needed for skin convert scripts -->
-						<posx>5</posx>
-						<posy>0</posy><!--view_52_labeltitle_posy-->
-						<width>600</width>
-						<height>30</height>
-						<font>font30_title</font>
-						<aligny>center</aligny>
-						<textcolor>$INFO[Skin.String(rcb_text_heading)]</textcolor>
-						<align>center</align>
-						<label>[B]$INFO[ListItem.Label][/B]</label>
-						<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
-						<animation effect="fade" start="0" end="100" time="0" delay="300" easing="out">Visible</animation>
+					<!-- CONSOLE CLEARLOGO -->
+					<control type="image">
+						<posx>350</posx>
+						<posy>380</posy>
+						<width>300</width>
+						<height>60</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Property(console_clearlogo)]</texture>
+						<fadetime>100</fadetime>
+						<visible>!String.IsEmpty(ListItem.Property(console_clearlogo))</visible>
 					</control>
+					
 						<!-- Note: comments below are needed for skin convert scripts -->
 						<control type="image">
 						<posx>5</posx>
