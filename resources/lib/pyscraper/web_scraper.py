@@ -115,6 +115,7 @@ class WebScraper(AbstractScraper):
         'Nintendo DS': ['44', '52', '8'],
         'Nintendo DSi': ['87', '52', ''],
         'Nintendo Switch': ['203', '157', '4971'],
+        'Nintendo Switch 2': ['', '', '5021'],
         'Nuon': ['116', '85', '4935'],
         'Odyssey': ['75', '74', '4961'],
         'Odyssey 2': ['78', '60', '4927'],
@@ -130,6 +131,7 @@ class WebScraper(AbstractScraper):
         'PlayStation 2': ['7', '19', '11'],
         'PlayStation 3': ['81', '35', '12'],
         'PlayStation 4': ['141', '146', '4919'],
+        'PlayStation 5': ['', '', '4980'],
         'Playdia': ['107', '127', ''],
         'Pokemon mini': ['152', '134', '4957'],
         'PSP': ['46', '18', '13'],
@@ -139,6 +141,7 @@ class WebScraper(AbstractScraper):
         'SEGA 32X': ['21', '31', '33'],
         'SEGA CD': ['20', '29', '21'],
         'SEGA Master System': ['26', '8', '35'],
+        'SEGA Mega Drive': ['', '', '36'],
         'SEGA Pico': ['103', '118', '4958'],
         'SEGA Saturn': ['23', '42', '17'],
         'SEGA SG-1000': ['114', '141', '4949'],
@@ -146,7 +149,7 @@ class WebScraper(AbstractScraper):
         'Sharp X68000': ['106', '95', '4931'],
         'Sharp MZ-80B/2000/2500': ['182', '128', ''],
         'Sharp MZ-80K/700/800/1500': ['181', '128', ''],
-        'Socrates': ['190', '169', ''],
+        'Socrates': ['190', '169', '4998'],
         'SNES': ['15', '9', '6'],
         'Spectravideo': ['85', '', ''],
         "Super A'can": ['110', '151', ''],
@@ -160,7 +163,7 @@ class WebScraper(AbstractScraper):
         'Vectrex': ['37', '76', '4939'],
         'VIC-20': ['43', '30', '4945'],
         'Virtual Boy': ['38', '79', '4918'],
-        'V.Smile': ['42', '82', ''],
+        'V.Smile': ['42', '82', '4988'],
         'Wii': ['82', '36', '9'],
         'Wii U': ['132', '139', '38'],
         'Windows': ['3', '94', '1'],
@@ -170,9 +173,10 @@ class WebScraper(AbstractScraper):
         'Xbox': ['13', '32', '14'],
         'Xbox 360': ['69', '20', '15'],
         'Xbox One': ['142', '145', '4920'],
+        'Xbox Series X': ['', '', '4981'],
         'Zeebo': ['88', '122', ''],
         'Zodiac': ['68', '64', ''],
-        'ZX Spectr': ['41', '16', '4913']}
+        'ZX Spectrum': ['41', '16', '4913']}
 
     def __init__(self):
         pass
