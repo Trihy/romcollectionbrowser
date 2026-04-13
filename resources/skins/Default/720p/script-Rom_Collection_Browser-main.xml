@@ -684,6 +684,20 @@
 					<posx>25</posx>
 					<posy>15</posy>
 					<visible>Control.IsVisible(52) + Integer.IsGreater(Container.NumItems,0)</visible>
+					<control type="label">
+						<!-- Note: comments below are needed for skin convert scripts -->
+						<posx>5</posx>
+						<posy>0</posy><!--view_52_labeltitle_posy-->
+						<width>600</width>
+						<height>30</height>
+						<font>font30_title</font>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(rcb_text_heading)]</textcolor>
+						<align>center</align>
+						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
+						<animation effect="fade" start="0" end="100" time="0" delay="300" easing="out">Visible</animation>
+					</control>
 					<!-- CONSOLE CLEARLOGO -->
 					<control type="image">
 						<posx>350</posx>
