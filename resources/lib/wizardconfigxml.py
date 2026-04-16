@@ -312,22 +312,15 @@ class ConfigXmlWizard(RcbXmlReaderWriter):
                     selectedscraper = offline_scrapers[scraperIndex]
                     log.info("Selected scraper = {0}".format(selectedscraper))
 
-                    #not used atm as we don't have any offline scrapers with descfile per game
-                    """
-                    if romCollection.descFilePerGame:
-                        # Assume the files are in a single directory with the mask %GAME%.txt
-                        # Prompt the user for the path
-                        pathValue = dialog.browse(0, util.localize(32189) % console, 'files')
-                        if pathValue == '':
-                            break
-
-                        # Prompt the user for the description file mask
-                        filemask = xbmcgui.Dialog().input(util.localize(32190), defaultt='%GAME%.xml', type=xbmcgui.INPUT_ALPHANUM)
-                        descPath = util.joinPath(pathValue, filemask.strip())
+                    # Personalizar mensaje y filtro para MAME
+                    if selectedscraper == "MAME":
+                        prompt = "Select mame_full.json (JSON with MAME Data)"
+                        mask = "*.json"
                     else:
-                    """
-                    descPath = dialog.browse(1, util.localize(32189) % console, 'files', '', False, False,
-                                             lastArtworkPath)
+                        prompt = util.localize(32189) % console
+                        mask = ""
+
+                    descPath = dialog.browse(1, prompt, 'files', mask, False, False, lastArtworkPath)
 
                     log.info("descPath: " + str(descPath))
                     if descPath == '':
