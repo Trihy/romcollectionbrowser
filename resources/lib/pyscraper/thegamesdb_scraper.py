@@ -1,7 +1,7 @@
 import sys
 import xml.etree.ElementTree as ET
 from web_scraper import WebScraper
-from util import Logutil as log
+from util import Logutil as log, get_thegamesdb_api_key
 from gamename_utils import GameNameUtil
 
 
@@ -17,8 +17,7 @@ class TheGamesDB_Scraper(WebScraper):
     _developers_url = 'https://api.thegamesdb.net/v1/Developers'
     _publishers_url = 'https://api.thegamesdb.net/v1/Publishers'
     _images_url = 'https://api.thegamesdb.net/v1/Games/Images'
-    #_retrieve_url = 'http://thegamesdb.net/api/GetGame.php'
-    _api_key = '1e821bf1bab06854840650d77e7e2248f49583821ff9191f2cced47e43bf0a73'
+    #_retrieve_url = 'http://thegamesdb.net/api/GetGame.php'    
     _fields = 'id,game_title,release_date,developers,publishers,players,genres,overview,rating'
     _include = 'boxart'
 
@@ -47,16 +46,16 @@ class TheGamesDB_Scraper(WebScraper):
     def _get_search_params(self, **kwargs):
         return {'name': GameNameUtil().prepare_gamename_for_searchrequest(kwargs['gamename']),
                 'filter[platform]': self.get_platform_for_scraper(kwargs['platform']),
-                'apikey': self._api_key,
+                'apikey': get_thegamesdb_api_key(),
                 'fields': self._fields,
                 'include': self._include}
 
     def _get_apikey_param(self):
-        return {'apikey': self._api_key}
+        return {'apikey': get_thegamesdb_api_key()}
 
     def _get_images_params(self, gameid):
         return {'games_id': gameid,
-            'apikey': self._api_key}
+            'apikey': get_thegamesdb_api_key()}
 
     def _get_retrieve_url(self):
         return ''

@@ -362,3 +362,16 @@ class Logutil(object):
         except:
             pass
         return logLevel
+        
+#
+# API key getters for scrapers
+#
+
+def get_thegamesdb_api_key():
+    return getSettings().getSettingString('rcb_apikey_thegamesdb')
+
+def get_giantbomb_api_key():
+    return getSettings().getSettingString('rcb_apikey_giantbomb')
+
+def get_mobygames_api_key():
+    return getSettings().getSettingString('rcb_apikey_mobygames')

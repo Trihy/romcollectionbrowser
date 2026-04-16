@@ -1,6 +1,6 @@
 from web_scraper import WebScraper
 from rcbexceptions import *
-from util import Logutil as log
+from util import Logutil as log, get_giantbomb_api_key
 from gamename_utils import GameNameUtil
 
 
@@ -9,8 +9,7 @@ from gamename_utils import GameNameUtil
 
 class GiantBomb_Scraper(WebScraper):
     """GiantBomb.com has its API described at https://www.giantbomb.com/api/documentation """
-    _name = 'GiantBomb.com'
-    _apikey = '279442d60999f92c5e5f693b4d23bd3b6fd8e868'
+    _name = 'GiantBomb.com'    
     _search_url = 'https://www.giantbomb.com/api/releases'
     _retrieve_release_url = 'https://www.giantbomb.com/api/release/{0}/'  # release ID is substituted
     _retrieve_game_url = 'https://www.giantbomb.com/api/game/{0}/'  # game ID is substituted
@@ -28,18 +27,18 @@ class GiantBomb_Scraper(WebScraper):
         return self._search_url
 
     def _get_search_params(self, **kwargs):
-        return {'api_key': self._apikey,
-                'filter': 'platform:%s,name:%s' % (self.get_platform_for_scraper(kwargs['platform']),
+        return {'filter': 'platform:%s,name:%s' % (self.get_platform_for_scraper(kwargs['platform']),
                                                    GameNameUtil().prepare_gamename_for_searchrequest(
                                                        kwargs['gamename'])),
-                'format': 'json',
-                'field_list': 'id,guid,name,release_date'}
+                'api_key': get_giantbomb_api_key(),
+                'field_list': 'id,guid,name,release_date',
+                'format': 'json'}
 
     def _get_retrieve_release_url(self, gameid):
         return self._retrieve_release_url.format(gameid)
 
     def _get_retrieve_release_params(self):
-        return {'api_key': self._apikey,
+        return {'api_key': get_giantbomb_api_key(),
                 'format': 'json'}
 
     # FIXME generic kwargs
@@ -47,7 +46,7 @@ class GiantBomb_Scraper(WebScraper):
         return self._retrieve_game_url.format(gameid)
 
     def _get_retrieve_game_params(self):
-        return {'api_key': self._apikey,
+        return {'api_key': get_giantbomb_api_key(),
                 'format': 'json'}
 
     def _check_status_code(self, sc):
