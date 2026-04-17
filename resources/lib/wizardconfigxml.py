@@ -312,7 +312,7 @@ class ConfigXmlWizard(RcbXmlReaderWriter):
                     selectedscraper = offline_scrapers[scraperIndex]
                     log.info("Selected scraper = {0}".format(selectedscraper))
 
-                    # Personalizar mensaje y filtro para MAME
+                    # Custom text when MAME is selected
                     if selectedscraper == "MAME":
                         prompt = "Select mame_full.json (JSON with MAME Data)"
                         mask = "*.json"
