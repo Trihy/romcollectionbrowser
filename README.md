@@ -19,7 +19,7 @@ You can google on how to create shorcuts for those platforms. RPCS3 is just a cl
 
 -Language files updated.
 
-Works on Kodi V18, V19, V20, V21
+Works on Kodi V18, V19, V20, V21, V22
 
 Only Tested on Windows.
 
