@@ -1,7 +1,7 @@
 # Rom Collection Browser - KODI Game Frontend #
 
 
-Kodi V20 & V21 Fork.
+Kodi V20 & V21 & V22 Fork.
 
 Some know fixes are applied to this Fork.
 
