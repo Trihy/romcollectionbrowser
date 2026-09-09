@@ -518,18 +518,32 @@
 					<posx>640r</posx>
 					<posy>0</posy>
 					<visible>Control.IsVisible(52)</visible>
-					<control type="label">
-						<!-- Note: comments below are needed for skin convert scripts -->
+					<!-- Console Brand Logo) -->
+					<control type="image">
+						<description>Console Brand Logo</description>
 						<posx>5</posx>
-						<posy>15</posy><!--view_52_labelconsole_posy-->
-						<width>620</width>
+						<posy>10</posy>
+						<width>230</width>
+						<height>58</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Property(console_logo_brand)]</texture>
+						<fadetime>100</fadetime>
+						<visible>!String.IsEmpty(ListItem.Property(console_logo_brand))</visible>
+					</control>
+
+					<!-- Console Title Fallback -->
+					<control type="label">
+						<posx>5</posx>
+						<posy>15</posy>
+						<width>490</width>
 						<height>30</height>
 						<font>font30_title</font>
 						<aligny>center</aligny>
-						<textcolor>$INFO[Skin.String(rcb_text_heading)]</textcolor>
 						<align>center</align>
+						<textcolor>$INFO[Skin.String(rcb_text_heading)]</textcolor>
 						<label>[B]$INFO[ListItem.Property(console)][/B]</label>
-						<visible>Control.IsVisible(52)</visible>
+						<scroll>true</scroll>
+						<visible>String.IsEmpty(ListItem.Property(console_logo_brand))</visible>
 					</control>					
 					<!-- extraImage1 -->
 					<control type="image">
@@ -684,6 +698,18 @@
 						<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
 						<animation effect="fade" start="0" end="100" time="0" delay="300" easing="out">Visible</animation>
 					</control>
+					<!-- CONSOLE CLEARLOGO -->
+					<control type="image">
+						<posx>350</posx>
+						<posy>380</posy>
+						<width>300</width>
+						<height>60</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Property(console_clearlogo)]</texture>
+						<fadetime>100</fadetime>
+						<visible>!String.IsEmpty(ListItem.Property(console_clearlogo))</visible>
+					</control>
+					
 						<!-- Note: comments below are needed for skin convert scripts -->
 						<control type="image">
 						<posx>5</posx>
@@ -2224,7 +2250,7 @@
 					<textoffsetx>7</textoffsetx>
 					<textoffsety></textoffsety>
 					<pulseonselect></pulseonselect>
-					<onup>4008</onup>
+					<onup>4009</onup>
 					<ondown>1000</ondown>
 					<onleft>50</onleft>
 					<onright>50</onright>
@@ -2600,6 +2626,30 @@
 					<textoffsety></textoffsety>
 					<pulseonselect></pulseonselect>
 					<onup>4007</onup>
+					<ondown>4009</ondown>
+					<onleft>50</onleft>
+					<onright>50</onright>
+				</control>
+				<control type="button" id="4009">
+					<description>Random Game</description>
+					<posx>0</posx>
+					<posy>280</posy>
+					<width>300</width>
+					<height>40</height>
+					<visible>true</visible>
+					<texturefocus colordiffuse="$INFO[Skin.String(rcb_button_focus)]">rcb-button-focus.png</texturefocus>
+					<texturenofocus></texturenofocus>
+					<label>Launch Random Game</label>
+					<font>font13</font>
+					<textcolor>$INFO[Skin.String(rcb_text_button_nofocus)]</textcolor>
+					<focusedcolor>$INFO[Skin.String(rcb_text_button_focus)]</focusedcolor>
+					<disabledcolor>$INFO[Skin.String(rcb_text_button_disabled)]</disabledcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textoffsetx>7</textoffsetx>
+					<textoffsety></textoffsety>
+					<pulseonselect></pulseonselect>
+					<onup>4008</onup>
 					<ondown>2</ondown>
 					<onleft>50</onleft>
 					<onright>50</onright>

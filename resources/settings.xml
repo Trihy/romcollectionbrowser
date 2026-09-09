@@ -46,5 +46,11 @@
 		<setting id="rcb_pathToEmuAutoConfig" label="32201" type="file" />
 		<setting id="rcb_disableScreensaver" label="32211" type="bool" default="false" />
 	</category>
+	
+	<category label="Scraper API Keys">
+		<setting id="rcb_apikey_thegamesdb" label="TheGamesDB.net" type="text" default="1e821bf1bab06854840650d77e7e2248f49583821ff9191f2cced47e43bf0a73"/>
+		<setting id="rcb_apikey_giantbomb" label="GiantBomb.com" type="text" default="279442d60999f92c5e5f693b4d23bd3b6fd8e868"/>
+		<setting id="rcb_apikey_mobygames" label="MobyGames.com" type="text" default="moby_UhWp7bXUIidSsdpuFiOJ9faTpJv"/>
+	</category>
 
 </settings>

@@ -76,7 +76,13 @@ class AbstractLauncher(object):
             self.gui.writeMsg(util.localize(32034))
             return
 
-        self.gui.writeMsg(util.localize(32163) + " " + self.gameRow[DataBaseObject.COL_NAME])
+        xbmcgui.Dialog().notification(
+            heading="Launching Game",
+            message=f"{self.gameRow[DataBaseObject.COL_NAME]} ({self.romCollection.name})",
+            icon=__addon__.getAddonInfo('icon'),
+            time=2000,
+            sound=False
+        )
 
         launchername = self.CMD_LAUNCHER
         if(self.romCollection.useBuiltinEmulator):

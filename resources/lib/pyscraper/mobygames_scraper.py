@@ -1,6 +1,6 @@
 from web_scraper import WebScraper
 from rcbexceptions import *
-from util import Logutil as log
+from util import Logutil as log, get_mobygames_api_key
 from gamename_utils import GameNameUtil
 import time
 
@@ -11,8 +11,7 @@ class Mobygames_Scraper(WebScraper):
     NOTE API requests are a maximum of 1 per second, and no more than 360 for the hour. We cater for this by adding
     a deliberate sleep delay into each request
     """
-    _name = 'MobyGames.com'
-    _apikey = 'FH9VxTkB6BGAEsF3qlnnxQ=='
+    _name = 'MobyGames.com'    
     _search_url = 'https://api.mobygames.com/v1/games'
     _retrieve_url = 'https://api.mobygames.com/v1/games/{0}'  # game ID is substituted
     _retrieve_release_url = 'https://api.mobygames.com/v1/games/{0}/platforms/{1}'  # game ID and platform ID will be substituted
@@ -34,7 +33,7 @@ class Mobygames_Scraper(WebScraper):
     def _get_search_params(self, **kwargs):
         print ('returning ' + kwargs['gamename'])
         return {'title': '%s' % GameNameUtil().prepare_gamename_for_searchrequest(kwargs['gamename']),
-                'api_key': self._apikey,
+                'api_key': get_mobygames_api_key(),
                 'platform': self.get_platform_for_scraper(kwargs['platform']),
                 'format': 'brief'}
 
@@ -51,7 +50,7 @@ class Mobygames_Scraper(WebScraper):
         return self._retrieve_screenshots_url.format(gameid, platformid)
 
     def _get_retrieve_params(self, **kwargs):
-        return {'api_key': self._apikey}
+        return {'api_key': get_mobygames_api_key()}
 
     def search(self, gamename, platform=None):
         time.sleep(1.2)

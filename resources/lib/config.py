@@ -413,7 +413,23 @@ class RomCollection(object):
 
         # Build friendly romname
         if self.useFoldernameAsGamename:
-            gamename = os.path.basename(os.path.dirname(filename))
+            # Find path
+            base_path = None
+            for rompath in self.romPaths:
+                # rompath should be something like "/path/roms/*.xxx"
+                dir_part = os.path.dirname(rompath)
+                if filename.startswith(dir_part):
+                    base_path = dir_part
+                    break
+            if base_path:
+                # Relative Path
+                rel_path = os.path.relpath(filename, base_path)
+                # First folder should be game folder
+                game_folder = rel_path.split(os.sep)[0]
+                gamename = game_folder
+            else:
+                # Fallback
+                gamename = os.path.basename(os.path.dirname(filename))
         else:
             gamename = os.path.basename(filename)
 
@@ -430,9 +446,7 @@ class RomCollection(object):
             gamename = os.path.splitext(gamename)[0]
 
         gamename = gamename.strip()
-
         log.debug("gamename (friendly): %s" % gamename)
-
         return gamename
 
 

@@ -74,6 +74,9 @@ SETTING_RCB_EMUAUTOCONFIGPATH = 'rcb_pathToEmuAutoConfig'
 SETTING_RCB_MAXNUMGAMESTODISPLAY = 'rcb_maxNumGames'
 SETTING_RCB_COLORFILE = 'rcb_colorfile'
 SETTING_RCB_SHOWNAVIGATIONHINT = 'rcb_showNavigationHint'
+SETTING_RCB_APIKEY_THEGAMESDB = 'rcb_apikey_thegamesdb'
+SETTING_RCB_APIKEY_GIANTBOMB = 'rcb_apikey_giantbomb'
+SETTING_RCB_APIKEY_MOBYGAMES = 'rcb_apikey_mobygames'
 
 SCRAPING_OPTION_AUTO_ACCURATE = 0
 SCRAPING_OPTION_INTERACTIVE = 1
@@ -362,3 +365,16 @@ class Logutil(object):
         except:
             pass
         return logLevel
+        
+#
+# API key getters for scrapers
+#
+
+def get_thegamesdb_api_key():
+    return getSettings().getSettingString('rcb_apikey_thegamesdb')
+
+def get_giantbomb_api_key():
+    return getSettings().getSettingString('rcb_apikey_giantbomb')
+
+def get_mobygames_api_key():
+    return getSettings().getSettingString('rcb_apikey_mobygames')
