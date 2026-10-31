@@ -25,7 +25,8 @@ class DialogBase(xbmcgui.WindowXMLDialog):
         log.info('addItemsToList: ID = ' + str(controlId) + ', values = ' + str(options))
 
         control = self.getControlById(controlId)
-        control.setVisible(1)
+        # Kodi 22 exige bool (antes aceptaba 1)
+        control.setVisible(True)
         control.reset()
 
         items = []
