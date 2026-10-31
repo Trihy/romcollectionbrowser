@@ -131,7 +131,8 @@ class RemoveRCDialog(xbmcgui.WindowXMLDialog):
         log.info('addItemsToList')
 
         control = self.getControlById(controlId)
-        control.setVisible(1)
+        # Kodi 22 exige bool (antes aceptaba 1)
+        control.setVisible(True)
         control.reset()
 
         items = []
